@@ -1,4 +1,4 @@
-if ($("meta[name='current-user']").length > 0)
+#if ($("meta[name='current-user']").length > 0)
 
   App.last_read = App.cable.subscriptions.create "LastReadChannel",
     connected: ->

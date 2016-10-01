@@ -1,4 +1,4 @@
-if ($("meta[name='current-user']").length > 0)
+#if ($("meta[name='current-user']").length > 0)
 
   App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
     connected: ->
@@ -23,7 +23,7 @@ if ($("meta[name='current-user']").length > 0)
           App.last_read.update(data.chatroom_id)
 
         # Insert the message
-        active_chatroom.append("<div><strong>#{data.username}:</strong> #{data.body}</div>")
+        active_chatroom.append(data.message)
 
       else
         $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")
