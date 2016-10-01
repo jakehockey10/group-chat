@@ -1,30 +1,32 @@
-App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
-  connected: ->
-# Called when the subscription is ready for use on the server
+if ($("meta[name='current-user']").length > 0)
 
-  disconnected: ->
-# Called when the subscription has been terminated by the server
+  App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-  received: (data) ->
-# Called when there's incoming data on the websocket for this channel
-    active_chatroom = $("[data-behavior='messages'][data-chatroom-id='#{data.chatroom_id}']")
-    if active_chatroom.length > 0
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
 
-      if document.hidden
-        if $('.strike').length == 0
-          active_chatroom.append("<div class='strike'><span>Unread Messages</span></div>")
+    received: (data) ->
+      # Called when there's incoming data on the websocket for this channel
+      active_chatroom = $("[data-behavior='messages'][data-chatroom-id='#{data.chatroom_id}']")
+      if active_chatroom.length > 0
 
-        if Notification.permission == 'granted'
-          new Notification(data.username, {body: data.body})
+        if document.hidden
+          if $('.strike').length == 0
+            active_chatroom.append("<div class='strike'><span>Unread Messages</span></div>")
+
+          if Notification.permission == 'granted'
+            new Notification(data.username, {body: data.body})
+
+        else
+          App.last_read.update(data.chatroom_id)
+
+        # Insert the message
+        active_chatroom.append("<div><strong>#{data.username}:</strong> #{data.body}</div>")
 
       else
-        App.last_read.update(data.chatroom_id)
+        $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")
 
-      # Insert the message
-      active_chatroom.append("<div><strong>#{data.username}:</strong> #{data.body}</div>")
-
-    else
-      $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")
-
-  send_message: (chatroom_id, message) ->
-    @perform "send_message", {chatroom_id: chatroom_id, body: message}
+    send_message: (chatroom_id, message) ->
+      @perform "send_message", {chatroom_id: chatroom_id, body: message}
