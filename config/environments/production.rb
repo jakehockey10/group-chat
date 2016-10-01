@@ -36,8 +36,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://limitless-fjord-25965.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ 'https://limitless-fjord-25965.herokuapp.com', 'http://limitless-fjord-25965.herokuapp.com/' ]
+  config.action_cable.url = 'wss://gentle-basin-73732.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [ 'https://gentle-basin-73732.herokuapp.com', 'http://gentle-basin-73732.herokuapp.com/' ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
