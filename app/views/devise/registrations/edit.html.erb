@@ -16,6 +16,15 @@
           <%= f.email_field :email, class: 'form-control' %>
         </div>
 
+        <div class="form-group">
+          <% if f.object.image.present? %>
+              <%= image_tag f.object.image_url, class: 'img-thumbnail' %>
+          <% end %>
+          <%= f.label :image %>
+          <%= f.hidden_field :image, value: f.object.cached_image_data %>
+          <%= f.file_field :image %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
