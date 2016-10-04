@@ -1,1 +1,11 @@
-<div><strong><%= message.user.username %>: <small><%= message.sentiment %> (<%= message.score %>)</small></strong><%= message.body %></div>
+<div class="media">
+  <div class="media-left">
+    <%= image_tag message.user.image_url, size: '50x50' %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= message.user.username %><small><%= message.sentiment %> (<%= message.score %>)</small>
+    </h4>
+    <p><%= message.body %></p>
+  </div>
+</div>

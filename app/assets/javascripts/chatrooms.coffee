@@ -22,3 +22,5 @@ $(document).on 'turbolinks:load', ->
     App.chatrooms.send_message(chatroom_id, body.val())
 
     body.val('')
+
+  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);

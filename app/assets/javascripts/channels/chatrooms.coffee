@@ -15,6 +15,7 @@
         if document.hidden
           if $('.strike').length == 0
             active_chatroom.append("<div class='strike'><span>Unread Messages</span></div>")
+            active_chatroom.scrollTop(active_chatroom.scrollHeight)
 
           if Notification.permission == 'granted'
             new Notification(data.username, {body: data.body})
