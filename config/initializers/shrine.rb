@@ -26,3 +26,4 @@ end
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for forms
+Shrine.plugin :determine_mime_type
