@@ -16,7 +16,7 @@
 
     <div class="form-group">
       <% if f.object.image.present? %>
-          <%= image_tag f.object.image_url, size: '250x250', class: 'img-thumbnail' %>
+          <%= image_tag avatar_url(f.object), size: '250x250', class: 'img-thumbnail' %>
       <% end %>
       <%= f.hidden_field :image, value: f.object.cached_image_data %>
       <%= f.label :image, class: 'btn btn-default btn-file' do %>
@@ -46,7 +46,7 @@
     <div class="form-group">
       <%= f.button 'Update',
                    class: 'btn btn-lg btn-block btn-primary',
-                   data: { disable_with: fa_icon('spinner pulse', text: 'Updating').html_safe } %>
+                   data:  { disable_with: fa_icon('spinner pulse', text: 'Updating') } %>
     </div>
 <% end %>
 <hr>

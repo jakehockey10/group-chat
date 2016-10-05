@@ -13,11 +13,21 @@
   <tbody>
     <% @chatrooms.each do |chatroom| %>
       <tr>
-        <td><%= chatroom.name %></td>
+        <td class="lead"><%= chatroom.name %></td>
         <!--<td><%# link_to 'Edit', edit_chatroom_path(chatroom) %></td>-->
         <!--<td><%# link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-        <td><%= link_to fa_icon('sign-in'), chatroom_chatroom_users_path(chatroom), method: :post %></td>
-        <td><%= link_to fa_icon('sign-out'), chatroom_chatroom_users_path(chatroom), method: :delete %></td>
+        <td>
+          <%= link_to fa_icon('sign-in', text: 'Join'),
+                      chatroom_chatroom_users_path(chatroom),
+                      method: :post,
+                      class: 'btn btn-success' %>
+        </td>
+        <td>
+          <%= link_to fa_icon('sign-out', text: 'Leave'),
+                      chatroom_chatroom_users_path(chatroom),
+                      method: :delete,
+                      class: 'btn btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

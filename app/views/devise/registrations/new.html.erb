@@ -18,7 +18,7 @@
 
         <div class="form-group">
           <% if f.object.image.present? %>
-              <%= image_tag f.object.image_url, class: 'img-thumbnail' %>
+              <%= image_tag avatar_url(f.object), size: '250x250', class: 'img-thumbnail' %>
           <% end %>
           <%= f.label :image %>
           <%= f.hidden_field :image, value: f.object.cached_image_data %>
