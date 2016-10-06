@@ -30,20 +30,20 @@
           <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br/>
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
         </div>
 
         <div class="form-group">
           <%= f.label :password_confirmation %><br/>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+          <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
+          <%= f.submit 'Sign up', class: 'btn btn-primary btn-block btn-lg' %>
         </div>
     <% end %>
     <div class="text-center">
-      <%= render "devise/shared/links" %>
+      <%= render 'devise/shared/links' %>
     </div>
   </div>
 </div>

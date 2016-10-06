@@ -23,4 +23,4 @@ $(document).on 'turbolinks:load', ->
 
     body.val('')
 
-  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);
+#  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);

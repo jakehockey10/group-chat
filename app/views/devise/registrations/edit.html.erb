@@ -22,6 +22,7 @@
       <%= f.label :image, class: 'btn btn-default btn-file' do %>
           <%= f.file_field :image %>
       <% end %>
+      <span class="help-block"><strong>Warning: </strong>Choosing a file here will automatically begin uploading the image without you clicking the update  button below.</span>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -38,10 +39,10 @@
       <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
-      <%= f.password_field :current_password, autocomplete: 'off', class: 'form-control' %>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<%# f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>-->
+      <!--<%# f.password_field :current_password, autocomplete: 'off', class: 'form-control' %>-->
+    <!--</div>-->
 
     <div class="form-group">
       <%= f.button 'Update',
