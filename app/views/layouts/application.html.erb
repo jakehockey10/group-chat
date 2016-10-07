@@ -18,26 +18,7 @@
 
 <div class="container-fluid" style="margin-top: 70px;">
   <div class="row">
-    <aside class="col-sm-3" style="position: fixed; top: 70px; left: 0;">
-      <% if user_signed_in? %>
-          <section>
-            <h5>Chatrooms</h5>
-            <ul>
-              <% current_user.chatrooms.public_channels.each do |chatroom| %>
-                  <li><%= link_to chatroom.name, chatroom, data: { behavior: 'chatroom-link', chatroom_id: chatroom.id } %></li>
-              <% end %>
-            </ul>
-          </section>
-          <section>
-            <h5>Users</h5>
-            <ul>
-              <% (User.all - [current_user]).each do |user| %>
-                  <li><%= link_to user.username, direct_message_path(user.id), data: { behavior: 'chatroom-link', chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
-              <% end %>
-            </ul>
-          </section>
-      <% end %>
-    </aside>
+
     <div class="col-sm-offset-3 col-sm-9">
       <%= yield %>
     </div>

@@ -1,3 +1,9 @@
+PATH
+  remote: ../local_time/
+  specs:
+    local_time (1.0.4)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -206,6 +212,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
+  local_time!
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)

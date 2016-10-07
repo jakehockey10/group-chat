@@ -4,7 +4,9 @@
   </div>
   <div class="media-body">
     <h4 class="media-heading">
-      <%= message.user.username %><small><%= message.sentiment %> (<%= message.score %>)</small>
+      <%= message.user.username %> |
+      <small><%= message.sentiment %> (<%= message.score %>)</small> |
+      <small><%= sent_at_for(message) %></small>
     </h4>
     <p><%= message.body %></p>
   </div>

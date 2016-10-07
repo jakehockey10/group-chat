@@ -1,9 +1,12 @@
 handleVisibilityChange = ->
-    $strike = $('.strike')
-    if $strike.length > 0
-      chatroom_id = $("[data-behavior='messages']").data('chatroom-id')
-      App.last_read.update(chatroom_id)
-      $strike.remove()
+  $strike = $('.strike')
+  if $strike.length > 0
+    chatroom_id = $("[data-behavior='messages']").data('chatroom-id')
+    App.last_read.update(chatroom_id)
+    $strike.remove()
+
+scrollToBottom = ->
+  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);
 
 $(document).on 'turbolinks:load', ->
   $(document).on 'click', handleVisibilityChange
@@ -23,4 +26,4 @@ $(document).on 'turbolinks:load', ->
 
     body.val('')
 
-#  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);
+  scrollToBottom()

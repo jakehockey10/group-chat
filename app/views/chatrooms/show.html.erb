@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <% content_for :page_title do %>
-    <strong style="pointer-events: none;position: absolute; width: 100%; left: 0; text-align: center; margin: 0 auto;"><%= @chatroom.name %></strong>
+    <strong class="chatroom-title"><%= @chatroom.name %></strong>
 <% end %>
+
+<p id="notice"><%= notice %></p>
 
 <% unread_messages = false %>
 <div data-behavior="messages" data-chatroom-id="<%= @chatroom.id %>" style="overflow-x: hidden; overflow-y: scroll; height: 80vh">

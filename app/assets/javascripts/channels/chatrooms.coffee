@@ -22,17 +22,16 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
       if document.hidden
         if $('.strike').length == 0
           active_chatroom.append("<div class='strike'><span>Unread Messages</span></div>")
-#          active_chatroom.scrollTop(active_chatroom.scrollHeight)
 
         if Notification.permission == 'granted'
           createNotification(data.username, data.body)
-#          active_chatroom.scrollTop(active_chatroom.scrollHeight)
 
       else
         App.last_read.update(data.chatroom_id)
 
       # Insert the message
       active_chatroom.append(data.message)
+      active_chatroom.scrollTop(active_chatroom[0].scrollHeight)
 
     else
       $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")
