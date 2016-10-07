@@ -1,7 +1,8 @@
-PATH
-  remote: ../local_time/
+GIT
+  remote: git://github.com/jakehockey10/local_time.git
+  revision: af4e6b9eba4a1964a22fb52f68278dba3ad13c49
   specs:
-    local_time (1.0.4)
+    local_time (1.0.3)
       coffee-rails
 
 GEM
