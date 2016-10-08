@@ -1,14 +1,31 @@
 // Place all the styles related to the Chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.navbar.navbar-default .ul-outside {
+  left: 5%;
+}
+
+@media (max-width: 768px) {
+  .navbar.navbar-default .ul-outside {
+    left: 10%;
+    width: 30%;
+  }
+}
+
 @media (min-width: 767px) {
   .navbar.navbar-default .ul-outside {
     position: absolute;
-    width: 100%;
+    //width: 30%;
     top: 115%;
   }
   .navbar.navbar-default .ul-outside > li {
     float: none;
+    width: 100%;
+  }
+  .navbar.navbar-default .ul-outside > li > a {
+    width: 100%;
   }
 
   .chatroom-title {
@@ -16,11 +33,6 @@
     left: 0;
     text-align: center;
   }
-}
-
-.navbar.navbar-default .ul-outside {
-  left: 5%;
-  width: 20%;
 }
 
 .chatroom-title {

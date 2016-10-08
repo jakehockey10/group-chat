@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap";
 @import "bootstrap-sprockets";
 @import "font-awesome";
@@ -48,4 +47,35 @@
 strike > span:after {
   left: 100%;
   margin-left: 15px;
+}
+
+i.appearance {
+  margin-left: 7px;
+  margin-right: 7px;
+  &.online-appearance {
+    color: SpringGreen;
+  }
+  &.away-appearance {
+    color: yellow
+  }
+}
+
+span.offline {
+  @extend .text-muted;
+  font-size: 10px;
+}
+
+a.direct-message-link {
+  overflow-x: visible;
+}
+
+.navbar-header.navbar-center {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: 0 auto;
+  height: 100%;
+  z-index: -1;
 }

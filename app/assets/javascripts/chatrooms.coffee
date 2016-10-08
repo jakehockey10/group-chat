@@ -6,7 +6,7 @@ handleVisibilityChange = ->
     $strike.remove()
 
 scrollToBottom = ->
-  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')[0].scrollHeight);
+  $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')?[0]?.scrollHeight);
 
 $(document).on 'turbolinks:load', ->
   $(document).on 'click', handleVisibilityChange

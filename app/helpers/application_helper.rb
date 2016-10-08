@@ -14,4 +14,22 @@ module ApplicationHelper
     end
   end
 
+  def link_appearance(user)
+    username = truncate(user.username, length: 20).to_str
+    case user.appearance
+      when 'online' # User.appearances[:online]
+        fa_icon('circle',
+                text: username,
+                class: 'appearance online-appearance')
+      when 'away' # User.appearances[:away]
+        fa_icon('sign-out',
+                text: username,
+                class: 'appearance away-appearance')
+      when 'offline' # User.appearances[:offline]
+        "#{content_tag :span, 'offline', class: 'offline'} #{username}".html_safe
+      else
+        return
+    end
+  end
+
 end

@@ -5,8 +5,8 @@ class MessageRelayJob < ApplicationJob
     ActionCable.server.broadcast "chatrooms:#{message.chatroom.id}",
                                  {
                                      message:     MessagesController.render(message),
-                                     username: message.user.username,
-                                     body: message.body,
+                                     username:    message.user.username,
+                                     body:        message.body,
                                      chatroom_id: message.chatroom.id
                                  }
   end

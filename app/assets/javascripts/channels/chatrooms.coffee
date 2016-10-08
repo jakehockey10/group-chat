@@ -1,7 +1,7 @@
 #if ($("meta[name='current-user']").length > 0)
 
 createNotification = (title, body) ->
-  notification = new Notification(title, { body: body })
+  notification = new Notification(title, {body: body})
   notification.onclick = ->
     window.focus()
     notification.close()
