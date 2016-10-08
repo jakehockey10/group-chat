@@ -14,19 +14,17 @@
     <% @chatrooms.each do |chatroom| %>
       <tr>
         <td class="lead"><%= chatroom.name %></td>
-        <!--<td><%# link_to 'Edit', edit_chatroom_path(chatroom) %></td>-->
-        <!--<td><%# link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         <td>
           <%= link_to fa_icon('sign-in', text: 'Join'),
                       chatroom_chatroom_users_path(chatroom),
                       method: :post,
-                      class: 'btn btn-success' %>
+                      class: 'btn btn-success' if user_signed_in? %>
         </td>
         <td>
           <%= link_to fa_icon('sign-out', text: 'Leave'),
                       chatroom_chatroom_users_path(chatroom),
                       method: :delete,
-                      class: 'btn btn-danger' %>
+                      class: 'btn btn-danger' if user_signed_in? %>
         </td>
       </tr>
     <% end %>
@@ -35,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Chatroom', new_chatroom_path %>
+<%= link_to 'New Chatroom', new_chatroom_path if user_signed_in? %>
