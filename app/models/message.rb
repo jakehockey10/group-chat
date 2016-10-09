@@ -4,6 +4,8 @@ class Message < ApplicationRecord
 
   before_save :set_sentiment, if: :body_changed?
 
+  validates :body, presence: true
+
   scope :positive, -> { where(sentiment: :positive) }
   scope :neutral, -> { where(sentiment: :neutral) }
   scope :negative, -> { where(sentiment: :negative) }
