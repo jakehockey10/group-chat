@@ -10,9 +10,11 @@ createNotification = (title, body) ->
 App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
+    console.log('connected to ChatroomsChannel')
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
+    console.log('disconnected to ChatroomsChannel')
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
@@ -31,6 +33,7 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
 
       # Insert the message
       active_chatroom.append(data.message)
+      LocalTime.run()
       active_chatroom.scrollTop(active_chatroom[0].scrollHeight)
 
     else
