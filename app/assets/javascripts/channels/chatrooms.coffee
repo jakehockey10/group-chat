@@ -33,7 +33,6 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
 
       # Insert the message
       active_chatroom.append(data.message)
-      LocalTime.run()
       active_chatroom.scrollTop(active_chatroom[0].scrollHeight)
 
     else
