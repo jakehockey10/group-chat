@@ -42,7 +42,7 @@
             <% current_user.chatrooms.public_channels.each do |chatroom| %>
                 <li>
                   <%= link_to chatroom, data: { behavior: 'chatroom-link', chatroom_id: chatroom.id } do %>
-                  <%= chatroom.name %> <small class="text-muted"><%= chatroom.messages.count %> users</small>
+                  <%= chatroom.name %> <small class="text-muted"><%= chatroom.users.count %> users</small>
                   <% end %>
                 </li>
             <% end %>
