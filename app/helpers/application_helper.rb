@@ -17,19 +17,33 @@ module ApplicationHelper
   def link_appearance(user)
     username = truncate(user.username, length: 20).to_str
     case user.appearance
-      when 'online' # User.appearances[:online]
-        fa_icon('circle',
-                text: username,
-                class: 'appearance online-appearance')
-      when 'away' # User.appearances[:away]
-        fa_icon('sign-out',
-                text: username,
-                class: 'appearance away-appearance')
-      when 'offline' # User.appearances[:offline]
-        "#{content_tag :span, 'offline', class: 'offline'} #{username}".html_safe
+      when 'online'
+        appearance_icon 'circle', username, 'online'
+      when 'away'
+        appearance_icon 'sign-out', username, 'away'
+      when 'offline'
+        appearance_icon 'circle-thin', username, 'offline'
       else
-        return
+        appearance_icon 'question-circle-o', username
     end
+  end
+
+  def unread_messages_badge(chatroom)
+    last_read_at    = ChatroomUser.find_by(user: current_user, chatroom: chatroom).last_read_at
+    unread_messages = chatroom.messages.where('created_at > ?', last_read_at)
+    if unread_messages.any?
+      content_tag :span, unread_messages.count, class: 'badge pull-right'
+    end
+  end
+
+  private
+
+  def appearance_icon(icon_name, text = '', class_name = '')
+    fa_icon(icon_name,
+            { text:  text,
+              class: class_name.empty? ?
+                         'appearance' :
+                         "appearance #{class_name}-appearance" })
   end
 
 end

@@ -36,7 +36,15 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
       active_chatroom.scrollTop(active_chatroom[0].scrollHeight)
 
     else
-      $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")
+      link = $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']")
+      link.css("font-weight", "bold")
+      if link.has('span.badge').length > 0
+        badge = link.find('span.badge')
+        val = parseInt(badge.text())
+        val++
+        badge.text(val)
+      else
+        link.append('<span class="badge pull-right">1</span>')
 
   send_message: (chatroom_id, message) ->
     @perform "send_message", {chatroom_id: chatroom_id, body: message}

@@ -9,7 +9,9 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    $("li##{data.username} > a[data-behavior='chatroom-link']").html(data.appearance)
+    link = $("li##{data.username} > a[data-behavior='chatroom-link']")
+    link.html(link.children())
+    link.children().not('span.badge').replaceWith(data.appearance)
 
   appear: ->
     @perform 'appear'

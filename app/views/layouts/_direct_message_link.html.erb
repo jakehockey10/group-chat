@@ -1,7 +1,9 @@
 <li id="<%= user.username %>">
-  <%= link_to link_appearance(user),
-              direct_message_path(user.id),
+  <% chatroom = Chatroom.direct_message_for_users([current_user, user]) %>
+  <%= link_to direct_message_path(user.id),
               data:  { behavior:    'chatroom-link',
-                       chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id },
-              class: 'direct-message-link' %>
+                       chatroom_id: chatroom.id },
+              class: 'direct-message-link' do %>
+      <%= link_appearance(user) %> <%= unread_messages_badge(chatroom) %>
+  <% end %>
 </li>

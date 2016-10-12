@@ -40,7 +40,11 @@
           <ul class="nav navbar-nav navbar-right ul-outside">
             <h5>Chatrooms</h5>
             <% current_user.chatrooms.public_channels.each do |chatroom| %>
-                <li><%= link_to chatroom.name, chatroom, data: { behavior: 'chatroom-link', chatroom_id: chatroom.id } %></li>
+                <li>
+                  <%= link_to chatroom, data: { behavior: 'chatroom-link', chatroom_id: chatroom.id } do %>
+                  <%= chatroom.name %> <small class="text-muted"><%= chatroom.messages.count %> users</small>
+                  <% end %>
+                </li>
             <% end %>
             <h5>Users</h5>
             <% (User.all - [current_user]).each do |user| %>

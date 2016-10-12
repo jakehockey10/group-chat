@@ -4,6 +4,7 @@ handleVisibilityChange = ->
     chatroom_id = $("[data-behavior='messages']").data('chatroom-id')
     App.last_read.update(chatroom_id)
     $strike.remove()
+    $('[data-behavior="chatroom-link"] > span.badge').remove()
 
 scrollToBottom = ->
   $('[data-behavior="messages"]').scrollTop($('[data-behavior="messages"]')?[0]?.scrollHeight);

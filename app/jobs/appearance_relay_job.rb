@@ -1,8 +1,6 @@
 class AppearanceRelayJob < ApplicationJob
   queue_as :default
 
-
-
   def perform(user)
     ActionCable.server.broadcast 'appearances',
                                  {
