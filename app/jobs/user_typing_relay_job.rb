@@ -6,7 +6,8 @@ class UserTypingRelayJob < ApplicationJob
                                  {
                                      typing: typing,
                                      chatroom_id: chatroom_id,
-                                     username: user.username
+                                     username: user.username,
+                                     user_id: user.id
                                  }
   end
 end
