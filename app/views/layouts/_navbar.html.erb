@@ -37,10 +37,10 @@
       </ul>
 
       <% if user_signed_in? %>
-          <ul class="nav navbar-nav navbar-right ul-outside">
+          <ul class="nav navbar-nav navbar-right nav-pills ul-outside">
             <h5>Chatrooms</h5>
             <% current_user.chatrooms.public_channels.each do |chatroom| %>
-                <li>
+                <li class="<%= active_class(url_for(chatroom)) %>">
                   <%= link_to chatroom, data: { behavior: 'chatroom-link', chatroom_id: chatroom.id } do %>
                   <%= chatroom.name %> <small class="text-muted"><%= chatroom.users.count %> users</small>
                   <% end %>

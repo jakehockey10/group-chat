@@ -1,4 +1,4 @@
-<li id="<%= user.username %>">
+<li id="<%= user.username %>" class="<%= active_class(direct_message_path(user.id)) %>">
   <% chatroom = Chatroom.direct_message_for_users([current_user, user]) %>
   <%= link_to direct_message_path(user.id),
               data:  { behavior:    'chatroom-link',

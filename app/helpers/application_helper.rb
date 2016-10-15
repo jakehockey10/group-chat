@@ -36,6 +36,10 @@ module ApplicationHelper
     end
   end
 
+  def active_class(path)
+    current_page?(path) ? 'active' : ''
+  end
+
   private
 
   def appearance_icon(icon_name, text = '', class_name = '')
